@@ -1,2 +1,2 @@
 # ProjetoLabWeb
-Projeto feito na aula de Laboratório Wen
+Projeto feito na aula de Laboratório Web
