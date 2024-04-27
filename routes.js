@@ -1,5 +1,5 @@
-const { getProducts, create } = require('./product-controller');
-const joi = require('joi');
+const { getProducts, create } = require('./api/v1/product/product-controller');
+const schema = require('./api/v1/product/product-schema');
 
 const routes = [
     {
@@ -12,20 +12,9 @@ const routes = [
         path: "/createproducts",
         options: {
             handler: create,
-            validate: {
-                payload: joi.object({
-                    name: joi.string()
-                    .required()
-                    .min(3)
-                    .max(60),
-                    quantity: joi
-                    .number()
-                    .integer()
-                    .required()
-                })
-            }
-        } 
+            validate: schema.getProductsSchema
+        }
     }
 ];
 
-module.exports =  routes;
+module.exports = routes;

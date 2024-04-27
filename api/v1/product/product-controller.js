@@ -12,14 +12,15 @@ const listproducts = [
 ]
 
 const getProducts = (request, h) => {
-    return listproducts;
+    const result = await business.list();
+    return h.response(result).code(200)
 }
 
 const create = (request, h) => {
     
-    listproducts.push(request.payload);
+    const result = await business.create(request.payload);
 
-    return listproducts
+    return h.response(result).code(201)
 }
 
 module.exports = {
